@@ -116,7 +116,7 @@ Funcion Resultado_Logico
 	Escribir "El lado derecho del comparador lógico es :", b;
 FinFuncion
 
-
+//este es el cambio 
 // *****************************                    Ejercicio  07
 //FECHA: 18/09/2023
 // 7  .-   2 *(4 - 10 + 8)/2* 36 *(1/2)
