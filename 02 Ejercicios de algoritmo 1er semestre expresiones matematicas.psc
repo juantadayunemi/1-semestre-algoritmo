@@ -119,7 +119,7 @@ FinFuncion
 
 // *****************************                    Ejercicio  07
 //FECHA: 18/09/2023
-// 7  .-   2 *(4 ? 10 + 8)/2* 36 *(1/2)
+// 7  .-   2 *(4 - 10 + 8)/2* 36 *(1/2)
 Funcion Resultado_matematico
 	//defino las variables 
 	Definir a Como Real;
