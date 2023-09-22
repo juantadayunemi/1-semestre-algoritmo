@@ -372,6 +372,7 @@ funcion Calculadora_impuesto
 
 FinFuncion
 
+
 // *****************************                        Ejercicio  28
 //	28. Calculadora de sueldo con aumento: Pide al usuario que ingrese su salario 
 //		actual y el porcentaje de aumento que recibirá. Calcula y muestra el nuevo 
@@ -400,20 +401,21 @@ FinFuncion
 
 
 
-// *****************************                        Ejercicio  29
+// *****************************                                        Ejercicio  29
 //	29. Calculadora de compra con múltiples artículos: Permite al usuario ingresar el 
 //		precio y la cantidad de varios artículos que está comprando. Calcula el total de 
-//		la compra y aplica un descuento del 10% si el total es mayor a cierta cantidad 
-//			(por ejemplo, $100).
+//	   la compra y aplica un descuento del 10% si el total es mayor a cierta cantidad 
+//	   (por ejemplo, $100).
 Funcion Programa_factura
     // Definir variables
-    Definir totalCompra , descuento , cantidades, precios como real;
+    Definir totalCompra , descuento , cantidades, precios, percentDiscount como real;
     Definir i , cantidadArticulos como Entero;
 
 	
     // Inicializar variables
     totalCompra <- 0;
 	descuento <-0;
+	percentDiscount <- 0.1;
 	
     // Solicitar al usuario la cantidad de artículos que va a comprar
     Escribir "Ingrese la cantidad de artículos que va a comprar:";
@@ -438,8 +440,8 @@ Funcion Programa_factura
     FinPara;
 	
     // Verificar si aplica descuento
-    Si totalCompra > 50 Entonces
-        descuento <- totalCompra * 0.12;  // Calcula el 10% de descuento
+    Si totalCompra > 100 Entonces
+        descuento <- totalCompra * percentDiscount;  // Calcula el 10% de descuento
     FinSi;
 	
     // Mostrar el total de la compra y el listado de artículos
@@ -458,7 +460,7 @@ Funcion Programa_factura
     Escribir "----------------------------------------------";
 	Escribir "";
     Escribir "             TOTAL FACTURA : ", totalCompra;
-	Escribir "      TOTAL DESCUENTO(12%) : ", descuento;
+	Escribir "      TOTAL DESCUENTO(10%) : ", descuento;
 	Escribir "             TOTAL A PAGAR : ",  (totalCompra - descuento);
 	Escribir "";
 	Escribir "";
@@ -479,6 +481,6 @@ Algoritmo Condicionales
 	//Calculadora_descueto();  //26
 	//Calculadora_impuesto();  //  27
 	//Calculadora_umento_sueldo(); // 28
-	//Programa_factura(); // 29
+	Programa_factura(); // 29
 	
 FinAlgoritmo
