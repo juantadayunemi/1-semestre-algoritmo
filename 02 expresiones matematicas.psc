@@ -73,10 +73,10 @@ FinFuncion
 // *****************************                    Ejercicio  04
 //4.Para a=8 y b=5, encuentra el valor de v = 2 * b + a div 2 + 4 * b mod a
 //		v = 2 * b + a div 2 + 4 * b mod a
-//		v = (2 * 5) + (8 div 2 ) + 4 * (5 mod 8)
-//		v = 10    + 4  + 4 * 5
-//		v = 14 + 20
-//		v = 34
+//		v = (2 * 5) + (8 div 2 ) + 4 * 5 mod 8
+//		v = 10    + 4  + 20 * 8
+//		v = 10 + 4 + 4 
+//		v = 18
 Funcion Dado_A_B_ecuantre_v
 	//Inicializo las variables
 	definir a, b  Como Entero;
@@ -86,8 +86,7 @@ Funcion Dado_A_B_ecuantre_v
 	a<-8; b<-5;
 	
 	//proceso datos 
-	v <-  (2 * b) + (a / 2) + (4 * (b mod a));
-	
+	v<-2 * b +  trunc((a / 2 ))+ 4 * b mod a;
 	//Presento los resultados
 	Escribir "Dato los valores --> a=", a , " y b=", b;
 	Escribir "El resultado de (2 * b) + (a / 2) + (4 * (b mod a)) , es: ", v;
@@ -138,7 +137,7 @@ Funcion Resultado_Logico
 	b<-(3 * 5 * 14)%3 ;
 
 	//comparación lógica
-	result <- a>b;// a > b ;
+	result <- a>b;
 	
 	//Presento los resultados
 	Escribir "Comparación lógica ((5 + 3 * 2) + 9)  >  (3 * 5 * 14 % 3) es :", result;
@@ -151,7 +150,7 @@ FinFuncion
 
 // *****************************                    Ejercicio  07
 //FECHA: 18/09/2023
-// 7  .-   2 *(4 ? 10 + 8)/2* 36 *(1/2)?
+// 7  .-   2 *(4  - 10 + 8)/2* 36 *(1/2)?
 //		= 2 *(4 - 10 + 8)/ 2* 36 *(1/2)
 //		= (2 * 2) / 2  * ( 36 * 1/2) 
 //		=  4 / 2  * 36 * 1/2
@@ -167,7 +166,7 @@ Funcion Resultado_matematico
 	a<- 2 *(4 - 10 + 8)/2* 36 *(1/2);
 	
 	//presento los resultados 
-	Escribir "La operación matemáticas de 2 *(4 ? 10 + 8)/2* 36 *(1/2):", a;
+	Escribir "La operación matemáticas de 2 *(4 - 10 + 8)/2* 36 *(1/2):", a;
 FinFuncion
 
 
@@ -238,12 +237,12 @@ Algoritmo  tareas
 	//Dados_A_B_calcula_y(); // 01
 	//Si_A_B_calcule_Z(); // 02
 	//Dado_A_B_determine_w(); // 03
-	//Dado_A_B_ecuantre_v();  // 04
+	Dado_A_B_ecuantre_v();  // 04
 	//Dado_A_B_calcula_u() ;// 05 
 	//Resultado_Logico(); // 06
 	//Resultado_matematico(); // 07
 	//Calculos_matematico();// 08
 	//Operacion_Logico2();  // 09
-	Operacion_Logico3();
+	//Operacion_Logico3();
 FinAlgoritmo
 	
