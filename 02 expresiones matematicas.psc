@@ -237,7 +237,7 @@ Algoritmo  tareas
 	//Dados_A_B_calcula_y(); // 01
 	//Si_A_B_calcule_Z(); // 02
 	//Dado_A_B_determine_w(); // 03
-	Dado_A_B_ecuantre_v();  // 04
+	//Dado_A_B_ecuantre_v();  // 04
 	//Dado_A_B_calcula_u() ;// 05 
 	//Resultado_Logico(); // 06
 	//Resultado_matematico(); // 07
