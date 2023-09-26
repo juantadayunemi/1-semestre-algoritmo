@@ -649,13 +649,140 @@ FinFuncion
 //	35. Calculadora de descuento por lealtad del cliente: Pide al usuario que ingrese el 
 //		total de sus compras mensuales durante un año. Si el total es superior a $500, 
 //			aplica un descuento del 10% en la próxima compra	
-
 Funcion Calcula_descuento_lealtad
+    // Defino variables 
+    Definir totalCompra, descuento, porcentaje Como Real;
 	
+    // Asigno valores
+    porcentaje <- 0.10;
+	
+    // Presento el programa
+    Escribir "Este es un programa de descuento por el acumulado de compras en el año.";
+    Escribir "Para acceder a este descuento, sus compras deben superar los $500.";
+    Escribir "";
+	
+    // Entrada de datos
+    Escribir "Por favor, ingrese el total de compras acumuladas en el año:";
+    Leer totalCompra;
+	
+    // Proceso de datos
+    Si (totalCompra > 500) Entonces
+        descuento <- totalCompra * porcentaje;
+    Sino
+        descuento <- 0;
+    FinSi
+	
+    // Presento los resultados
+    Escribir "";
+    Escribir "-------------------------------------------------";
+    Si (descuento > 0) Entonces
+        Escribir "¡Felicidades! Usted aplicó el descuento para la próxima compra.";
+        Escribir "Su total de compras del año es: ", totalCompra;
+        Escribir "En su próxima compra se aplicará un descuento del: ", porcentaje * 100, " %";
+        Escribir "Gracias por su lealtad.";
+    Sino
+        Escribir "Mil disculpas.";
+        Escribir "Su compra anual no llegó al mínimo requerido para aplicar descuentos.";
+        Escribir "Gracias, siga visitando nuestro local con más frecuencia.";
+    FinSi
+    Escribir "";
 	
 FinFuncion
 
+// *****************************                            Ejercicio  36, 37, 38, 39 
+//	36. Calculadora de descuento por volumen de compra: Permite al usuario ingresar 
+//		la cantidad de unidades de un producto que va a comprar y el precio unitario. 
+//		Aplica descuentos por volumen de compra según las siguientes reglas : 
+//			10 - 50 unidades 5 % de descuento 
+//			51 - 100 unidades 10 % de descuento 
+//			mas de  100 unidades  15 %  descuento.
+Funcion Descuento_por_volumen
+    // Defino variables 
+    Definir unidades, costoUnidad, porcentaje, descuento Como Real;
+	
+    // Asigno valores 
+    porcentaje <- 0;
+	
+    // Presento el programa
+    Escribir "Este es un programa de descuento por volumen de compras.";
+    Escribir "";
+	
+    // Entrada de datos - Pido los datos al usuario 
+    Escribir "Por favor, ingrese la cantidad de productos que va a adquirir:";
+    Leer unidades;
+	
+    Escribir "Ingrese el costo unitario del producto:";
+    Leer costoUnidad;
+	
+    // Proceso de datos 
+    Si (unidades >= 10  y unidades <= 50) Entonces
+        porcentaje <- 0.05;
+    Sino
+        Si (unidades > 50  y unidades <= 100) Entonces
+            porcentaje <- 0.10;
+        Sino
+            Si (unidades > 100) Entonces
+                porcentaje <- 0.15;
+            FinSi
+        FinSi
+    FinSi
+    descuento <- unidades * costoUnidad * porcentaje;
+	
+    // Presento los resultados 
+    Escribir "";
+    Escribir "----------------------------------------------";
+    Escribir "     Total unidades compradas : ", unidades;
+    Escribir "              Precio unitario : ", costoUnidad, " $";
+    Escribir "      Porcentaje de descuento : ", porcentaje * 100, " %";
+    Escribir "              Total descuento : ", descuento , " $";
+    Escribir "                Total a pagar : ", (unidades * costoUnidad) - descuento, " $";
+    Escribir "----------------------------------------------";
+    Escribir "";
+	
+FinFuncion
 
+// *****************************                            Ejercicio  40
+//	Calculadora de costo de servicio: Pregunta al usuario cuántas horas de servicio 
+//		necesita y calcula el costo total. Si las horas son más de 10, aplica un 
+//			descuento del 20%
+Funcion Descuento_servicio
+    // Defino variables
+    Definir costoHora, horaServicio, descuento, porcentaje Como Real;
+	
+    // Asigno valores
+    porcentaje <- 0;
+    descuento <- 0;
+	
+    // Presento el programa
+    Escribir "Este es un programa de cálculo de descuento por horas de servicio.";
+    Escribir "";
+	
+    // Entrada de datos - Pido los datos al usuario
+    Escribir "Estimado/a, ¿cuántas horas de servicio necesita?";
+    Leer horaServicio;
+	
+    Escribir "¿Cuál es el costo por hora?";
+    Leer costoHora;
+	
+    // Proceso de datos
+    Si (horaServicio > 10) Entonces
+        porcentaje <- 0.2;
+    FinSi
+    descuento <- costoHora * horaServicio * porcentaje;
+	
+    // Presento los resultados
+    Escribir "";
+    Escribir "----------------------------------------------";
+    Escribir "      Total horas de servicio : ", horaServicio;
+    Escribir "              Costo por hora  : ", costoHora, " $";
+    Escribir "         Costo neto servicio  : ", costoHora * horaServicio, " $";
+    Escribir "      Porcentaje de descuento : ", porcentaje * 100, " %";
+    Escribir "              Total descuento : ", descuento , " $";
+    Escribir "                Total a pagar : ", (horaServicio * costoHora) - descuento, " $";
+    Escribir "----------------------------------------------";
+    Escribir "";
+	
+FinFuncion
 
 
 Algoritmo Condicionales 
@@ -675,5 +802,9 @@ Algoritmo Condicionales
 	//Programa_factura2();   // 29
 	//Impuesto_a_la_renta();  //30,31, 32
 	//Bono_por_antiguedad();   //33
-	Calculadora_envio();    //34
+	//Calculadora_envio();    //34
+	//Calcula_descuento_lealtad(); //  35,36,37,38
+     //Descuento_por_volumen();
+	Descuento_servicio();
+	
 FinAlgoritmo
