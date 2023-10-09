@@ -1,3 +1,4 @@
+
 // Realizado por: TADAY MALAN JUAN
 // ********  01 Ejercicio del video  *****************************************************
 // definicion de tipo de variables

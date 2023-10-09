@@ -1,3 +1,4 @@
+
 //Ejercicios de algoritmo S1-TAREA_1 - pdf
 //                                  ------------   Ejercicios algoritmos secuenciales 
 //fecha  18 /09 /2023
