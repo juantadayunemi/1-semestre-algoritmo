@@ -306,8 +306,7 @@ Algoritmo Ejercicios_Algoritmo
 	//Repetir_mientras();
 	//Arreglo_personas();
 	
-	
-	definir resul como real;
+    definir resul como real;
 	resul<- Sumar_dosNumros(23,25);
 	Escribir "Lasuma es:", resul;
 
