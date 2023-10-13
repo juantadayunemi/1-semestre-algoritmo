@@ -117,7 +117,7 @@ FinFuncion
 // 15 Tabla de multiplicar: Pide al usuario un número y muestra su tabla de 
 //       multiplicar del 1 al 10.
 
-Funcion Tabla_multiplicar
+Funcion TablaMultiplicar
 	//defini variables 
 	definir tabla Como Entero;
 	
@@ -161,23 +161,11 @@ funcion Concatenar_palabras
 	LEER 	pala2;
 	
 	//unifico las palabras 
-	result <- pala1 +  " " +   pala2;
+	result <-   Concatenar( Concatenar( pala1 , " " ),  pala2);
 	
 	// mostrar resultado de unificación 
 	escribir "La palabra unificada es : " , result; 
 FinFuncion
-
-
-Proceso Algoritmo_secuencial
-	//Suma_dos_numeros(); // 11 
-	//Area_tringulo(); // 12
-	//Num_par_impar();//   13
-	//Calculadora_simple();  //14
-	//Tabla_multiplicar();  //15
-	Concatenar_palabras();  //16
-FinProceso
-
-
 
 //Ejercicios de algoritmo S1-TAREA_1 - pdf
 //                                  ------------   Ejercicios algoritmos CONDICIONALES 
@@ -1250,17 +1238,18 @@ FinFuncion
 //		un bucle while para mostrar una cuenta regresiva desde ese número hasta 1
 Funcion Cuenta_regresiva
 	//defino variables
-	definir index , from Como Entero;
+	definir  from Como Entero;
 	
 	//presento el programa 
 	Escribir "Este programa hace un conteo regresivo desde el número positivo que ingrese";
 	Escribir "  --- por fa!, ingrese un número";
 	leer from ;
 	
-	Para index <- (from) Hasta 1 Con Paso -1 Hacer
-		Escribir "    "  ,index ; 
-	FinPara
-	
+	Mientras from >= 1 Hacer
+		Escribir from;
+		from   <-  from - 1;
+	FinMientras
+
 FinFuncion
 
 // ----------------------------A  R  R  E  G  L  O  S  ------------
@@ -1828,14 +1817,14 @@ funcion  result <-  SumaLista(array)
 FinFuncion
 
 
-
-
-
-
-
-
 Proceso Logaritmo 
-
+	
+	//Suma_dos_numeros(); // 11 
+	//Area_tringulo(); // 12
+	//Num_par_impar();//   13
+	//Calculadora_simple();  //14
+	//TablaMultiplicar();  //15
+	//Concatenar_palabras();  //16
 	//Contador_vocales();
 	//Contador_digitos();
 	//Adivina_num();
