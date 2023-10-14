@@ -1634,7 +1634,7 @@ Funcion AreaTriangulo
 	definir  base, altura como Real ;
 	
 	//Presento el programa 
-	Escribir "Esta funcion calcula al área de un triángulo";
+	Escribir "Esta funcion calcula al área de un rectángulo";
 	Escribir "Para lo cual, por favor ingrese los siguientes datos";
 	Escribir "Base: ";
 	leer base;
@@ -1643,7 +1643,7 @@ Funcion AreaTriangulo
 	leer altura;
 	
 	//Presento los resultados 
-	Escribir "El área del triángulo es: ", CalculaAreaTriagulo(base, altura);
+	Escribir "El área del rectángulo es: ", CalculaAreaRectangulo(base, altura);
 	
 FinFuncion
 
@@ -1764,10 +1764,10 @@ Funcion DeterminaPar(num1)
 	FinSi
 FinFuncion
 
-funcion result <-  CalculaAreaTriagulo (base, altura)
+funcion result <-  CalculaAreaRectangulo (base, altura)
 	definir  result Como Real;
 	
-	result<- (base * altura) / 2 ;
+	result<- (base * altura) ;
 FinFuncion
 
 Funcion ImprimeMinombre
@@ -1844,7 +1844,7 @@ Proceso Logaritmo
 	//SumaDosNumeros();  // 59
 	//MultiplicaDosNumeros();  //60
 	//NumeroPar();   // 61
-	//AreaTriangulo();     //62
+	//CalculaAreaRectangulo();     //62
 	//ImprimeNombre();    //63
 	//ConvierteGrados();     //64
 	//ContadorCaracter();     //65
