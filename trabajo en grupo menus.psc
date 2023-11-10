@@ -64,18 +64,37 @@ Funcion residuo = obtenerResiduo(dividendo, divisor)
 	residuo = dividendo - (cociente * divisor) // Calcula el residuo
 FinFuncion
 
+//4) El consultorio del Dr. Paez tiene como política cobrar la consulta con
+//base en el número de cita, de la siguiente forma:
+//	Las tres primeras citas a $200.00 c/u.
+//	Las siguientes dos citas a $150.00 c/u.
+//	Las tres siguientes citas a $100.00 c/u.
+//	Las restantes a $50.00 c/u, mientras dure el tratamiento.
+//	Se requiere un algoritmo para determinar:
+//				Cuánto pagará el paciente por la cita.
+//				El monto de lo que ha pagado el paciente por el tratamiento.
+//				Para la solución de este problema se requiere saber qué número de cita se efectuará, con el
+//					cual se podrá determinar el costo que tendrá la consulta y cuánto se ha gastado en el
+//					tratamiento.
 
 Funcion calcularCostoConsulta(numeroCita)
-    Definir costoConsulta Como Real
+    Definir costoConsulta , costoTratamiento Como Real
     Definir montoTratamiento Como Real
     
     Si numeroCita <= 3 Entonces
+		costoTratamiento  <- 0 
         costoConsulta = 200.00  // Las tres primeras citas a $200.00 c/u
     Sino Si numeroCita <= 5 Entonces
+			numeroCita <- numeroCita - 3
+			costoTratamiento  <- 600 // 3*200
 			costoConsulta = 150.00  // Las siguientes dos citas a $150.00 c/u
 		Sino Si numeroCita <= 8 Entonces
+				numeroCita <- numeroCita - 5
+				costoTratamiento  <- 900  // 3*200 + 2*150
 				costoConsulta = 100.00  // Las tres siguientes citas a $100.00 c/u
 			Sino
+				numeroCita <- numeroCita - 8
+				costoTratamiento  <- 1100 // 3*200 + 2*150 + 3 *100 
 				costoConsulta = 50.00  // Las restantes a $50.00 c/u mientras dure el tratamiento
 			FinSi
 		FinSi
@@ -84,8 +103,11 @@ Funcion calcularCostoConsulta(numeroCita)
 	montoTratamiento = costoConsulta * numeroCita
 	
 	Escribir "Costo de la consulta: $", costoConsulta
-	Escribir"Monto pagado por el tratamiento: $", montoTratamiento
+	Escribir"Monto pagado por el tratamiento: $", costoTratamiento +  montoTratamiento
 FinFuncion
+
+//   5) Escribir un algoritmo que lea cuatro números y determine si el numero 1
+//		es la mitad del número 2; Y si el numero 3 es divisor del numero4.
 
 Funcion esDivisor = verificarRelacionesNumericas(num1, num2, num3, num4)
     Definir mitad Como Real
@@ -106,6 +128,7 @@ Funcion esDivisor = verificarRelacionesNumericas(num1, num2, num3, num4)
     FinSi
 FinFuncion
 
+
 Funcion nuevoLimite = calcularNuevoLimite(tipoTarjeta)
     Definir aumentoPorcentaje Como Real
     Definir nuevoLimite Como Real
@@ -123,6 +146,9 @@ Funcion nuevoLimite = calcularNuevoLimite(tipoTarjeta)
 	
 	nuevoLimite = aumentoPorcentaje / 100 * 20  // Aumento del porcentaje más $20 adicionales
 FinFuncion
+
+//7)Escribir un algoritmo que lea cuatro números y determine si el numero 1 es divisor del
+//		numero3 Y si el numero 2 es el doble del numero4.
 
 Funcion verificarDivisibilidadYRelacion(num1, num2, num3, num4)
 	Definir esDivisor Como Logico
@@ -154,6 +180,16 @@ Funcion verificarDivisibilidadYRelacion(num1, num2, num3, num4)
 		Escribir "El número 2 no es el doble del número 4."
 	FinSi
 FinFuncion
+
+//8) El banco POO ha decidido aumentar el límite de crédito de las tarjetas de crédito
+//de sus clientes, para esto considera que:
+//		Si su cliente tiene tarjeta tipo 1, el aumento será del $100 .
+//			Si tiene tipo 2 el aumento será del $200
+//				Si tiene tipo 3, el aumento será del $300
+//					Para cualquier otro tipo será del 500
+//						Realizar un algoritmo que ayude al banco a determinar el nuevo límite
+//							de crédito que tendrá una persona en su tarjeta considerando que
+//							después del aumento se tendrá que subir 10% adicionales a todas las tarjetas
 
 Funcion aumento = calcularNuevoAumento(tipoTarjeta)
     Definir aumento Como Real
@@ -197,8 +233,19 @@ Funcion evaluarNumero(numero)
     FinSi
 FinFuncion
 
-Funcion precioFinal = calcularPrecioPitajaya(tipo, tamaño)
-    Definir precioInicial Como Real
+//10) La asociación de vinicultores tiene como política fijar un precio inicial al quintal de
+//pitajaya, la cual se clasifica en tipos "Amarilla" y "Colorada", y además en tamaños 1 y 2.
+//Cuando se realiza la venta del producto, ésta es de un solo tipo y tamaño, se requiere
+//determinar cuánto recibirá un productor por la pitajaya que entrega en un embarque,
+//considerando lo siguiente:
+//	? Si es de tipo Amarilla, se le cargan $10 al precio inicial cuando es de tamaño 1; y 15% mas $5
+//	si es de tamaño 2
+//	? Si es de tipo Colorada, se rebajan $20 cuando es de tamaño 1, y 20% cuando es de tamaño
+//	2. Sea tipo Amarilla y Colorada se debe se aplicar un descuento del 5% y el 12% del IVA.
+//	Realice un algoritmo para determinar el precio de embarque
+
+
+Funcion precioFinal = calcularPrecioPitajaya(tipo, tamaño, precioInicial)
     Definir precioFinal Como Real
     Definir descuento Como Real
     Definir iva Como Real
@@ -206,15 +253,15 @@ Funcion precioFinal = calcularPrecioPitajaya(tipo, tamaño)
     // Determina el precio inicial según el tipo y tamaño
     Si tipo == "Amarilla" Entonces
         Si tamaño == "1" Entonces
-            precioInicial = 10
+            precioInicial =  precioInicial + 10
         Sino
-            precioInicial = 10 + (10 * 0.15)
+            precioInicial = precioInicial  + (precioInicial * 0.15 ) + 5 
         FinSi
     Sino
         Si tamaño == "1" Entonces
-            precioInicial = 10 - 20
+            precioInicial = precioInicial - 20
         Sino
-            precioInicial = 10 - (10 * 0.20)
+            precioInicial = precioInicial  -( precioInicial * 0.2)
         FinSi
     FinSi
 	
@@ -1060,7 +1107,10 @@ Funcion realizarOperacionesConNumeros(opcionSeleccionada)
 				Escribir "Ingrese el tamaño de pitajaya (1 o 2): "
 				Leer tamaño
 				
-				precioEmbarque = calcularPrecioPitajaya(tipo, tamaño)
+				Escribir "Ingrese el precio inicial "
+				Leer precioInicial
+				
+				precioEmbarque = calcularPrecioPitajaya(tipo, tamaño, precioInicial)
 				Escribir "El precio de embarque es: $", precioEmbarque
 				
 			Caso 11:
